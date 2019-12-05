@@ -5,8 +5,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Result</h1>
+
+<form action="#" th:action="@{/submitMessage}" th:object="${message}" method="put">
+
+    <p>New Message: <input type="text" th:field="*{text}" /></p>
+
+    <p><input type="submit" value="Submit" /> </p>
+
+    <h1>Result</h1>
+
     <p th:text="'text: ' + ${message.text}" />
-    <a href="/message">Submit another message</a>
+
+</form>
+
 </body>
 </html>

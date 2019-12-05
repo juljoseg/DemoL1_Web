@@ -6,17 +6,20 @@
 </head>
 <body>
    
-    <h1>Form</h1>
-    
-    <form action="#" th:action="@{/submitMessage}" th:object="${message}" method="post">
-    
-        <p>Message: <input type="text" th:field="*{text}" /></p>
-        
-        <p><input type="submit" value="Submit" /> </p>
-        
-        <h1>Result</h1>
-        
-    	<p th:text="'text: ' + ${message.text}" />
+
+
+    <form action="#" th:action="@{/submitMessage}" th:object="${message}" method="put">
+
+        <h1>User Messages</h1>
+
+        <p th:text="'User: ' + ${user.name}" />
+
+        <table border="1">
+            <tr th:each="message: ${user.messageList}">
+                <td th:text="${message.text}" />
+            </tr>
+        </table>
+
         
     </form>
     
